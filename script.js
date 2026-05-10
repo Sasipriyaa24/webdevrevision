@@ -10,7 +10,7 @@ function sasi() {
 sasi();
 
 console.log(true==1);
-*/
+
 const a=20;
 const res=a>=20?"eligible":"no";
 console.log(res);
@@ -25,3 +25,4 @@ console.log(obj?.contact);
 for(let i=0;i<=5;i++){
   console.log(i);
 };
+*/

@@ -1,2 +1,3 @@
-import a from "/script.js"
+/*import a from "/script.js"
 console.log(a);
+*/
