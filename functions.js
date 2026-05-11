@@ -1,4 +1,4 @@
-//named fn
+/*//named fn
 function add(x,y){
   return x+y;
 }
@@ -24,3 +24,8 @@ function c2(num){
   c1(num);
 }
 c2(5);
+*/
+
+document.querySelector("button").addEventListener("click",function(){
+  console.log("hello sasi");
+})
