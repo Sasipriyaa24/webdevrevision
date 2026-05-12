@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <p id="greet">hello</p>
+  <p>Example for DOM</p>
+  <p id="placeholder"></p>
+  <button id="start">Start</button>
+</head>
+<body>
+  <script>
+    const element=document.getElementById("greet");
+    document.getElementById("placeholder").innerHTML=element.innerHTML + "welcome";
+    
+    
+    const startpro=new Event("startProcess");
+    document.addEventListener('startProcess',()=>{
+      alert("event started");
+    });
+    const toTriger=document.getElementById('start');
+    toTriger.addEventListener('click',()=>{
+      document.dispatchEvent(startpro);
+    });
+  </script>
+</body>
+</html>

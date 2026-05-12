@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exercise</title>
+  <button id="process">Event</button>
+</head>
+<body>
+  <script>
+    const ev=new Event('startEvent');
+    document.addEventListener('startEvent',()=>{
+      alert("Event has Successfully Started");
+    })
+    const toStart=document.getElementById('process');
+    toStart.addEventListener('click',()=>{
+      document.dispatchEvent(ev);
+    })
+  </script>
+</body>
+</html>
