@@ -1,22 +1,13 @@
-import { useState } from "react";
-
-function Counter() {
-
-  const [count, setCount] = useState(0);
-
+import React from 'react';
+import Ue from '/.Ue';
+const fruits = ["Apple", "Mango", "Orange"];
+function App() {
   return (
-    <div>
-      <h1>{count}</h1>
-
-      <button onClick={() => setCount(count + 1)}>
-        Increase
-      </button>
-      <button onClick={()=>{
-        setCount(count-1);
-      }}>
-        Decrease
-      </button>
-    </div>
+    <ul>
+      {fruits.map((fruit, index) => (
+        <li key={index}>{fruit}</li>
+      ))}
+    </ul>
   );
 }
-export default Counter;
+export default App;
