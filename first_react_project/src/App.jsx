@@ -1,13 +1,23 @@
-import React from 'react';
-import Ue from '/.Ue';
-const fruits = ["Apple", "Mango", "Orange"];
+import { useEffect, useState } from "react";
+
 function App() {
+
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then(res => res.json())
+      .then(data => setUsers(data));
+
+  }, []);
+
   return (
-    <ul>
-      {fruits.map((fruit, index) => (
-        <li key={index}>{fruit}</li>
+    <div>
+      {users.map(user => (
+        <h2 key={user.id}>{user.name}</h2>
       ))}
-    </ul>
+    </div>
   );
 }
 export default App;
