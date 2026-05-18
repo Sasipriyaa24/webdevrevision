@@ -2,22 +2,71 @@ import { useEffect, useState } from "react";
 
 function App() {
 
-  const [users, setUsers] = useState([]);
+  const [courses, setCourses] = useState([]);
+  const [title, setTitle] = useState("");
 
+  // GET API
   useEffect(() => {
 
-    fetch("https://jsonplaceholder.typicode.com/users")
+    fetch("http://localhost:3000/courses")
       .then(res => res.json())
-      .then(data => setUsers(data));
+      .then(data => setCourses(data));
 
   }, []);
 
+  // POST API
+  const addCourse = () => {
+
+    fetch("http://localhost:3000/courses", {
+
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        title: title
+      })
+
+    })
+      .then(res => res.json())
+      .then(data => {
+
+        setCourses([...courses, data]);
+
+        setTitle("");
+
+      });
+
+  };
+
   return (
+
     <div>
-      {users.map(user => (
-        <h2 key={user.id}>{user.name}</h2>
+
+      <h1>Course App</h1>
+
+      <input
+        type="text"
+        placeholder="Enter course"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+      />
+
+      <button onClick={addCourse}>
+        Add Course
+      </button>
+
+      {courses.map(course => (
+        <h3 key={course.id}>
+          {course.title}
+        </h3>
       ))}
+
     </div>
+
   );
 }
+
 export default App;
